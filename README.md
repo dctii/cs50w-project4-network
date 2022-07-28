@@ -21,16 +21,4 @@ $ root@0-0-0-0.ip.linodeusercontent.com: git push -u origin main
 $ root@0-0-0-0.ip.linodeusercontent.com: git pull
 Username for 'https://github.com': gituser
 Password for 'https://gituser@github.com': #github-personal-access-token#
-remote: Enumerating objects: n, done.
-remote: Counting objects: n% (n/n), done.
-remote: Compressing objects: 100% (n/n), done.
-remote: Total n (delta n), reused n (delta n), pack-reused n
-Unpacking objects: 100% (n/n), done.
-From https://github.com/gituser/project
-   h4sH..h4sH  main       -> origin/main
-Updating    h4sH..h4sH
-Fast-forward
- name.file | n +++++++++++++++++++-
- n files changed, n insertions(+), n deletions(-)
-
 ```
