@@ -1,6 +1,6 @@
 # cs50w-project4-network
 
-1.Connect your repository to your Django Template server on Linode
+1. Connect your repository to your Django Template server on Linode
 
 ```
 $ user@local: ssh root@0.0.0.0
