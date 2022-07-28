@@ -22,3 +22,26 @@ $ root@0-0-0-0.ip.linodeusercontent.com: git pull
 Username for 'https://github.com': gituser
 Password for 'https://gituser@github.com': #github-personal-access-token#
 ```
+
+4. Change the repository name on github.com
+5. Change the repository server-side:
+https://bit.ly/3POwcnW 'Change git respository name'
+```
+$ root@0-0-0-0.ip.linodeusercontent.com: git remote-v
+$ root@0-0-0-0.ip.linodeusercontent.com: git remote set-url origin https://www.github.com/user/project-new-name.git
+$ root@0-0-0-0.ip.linodeusercontent.com: git remote -v
+$ root@0-0-0-0.ip.linodeusercontent.com: git push
+```
+
+5. Push changes server-side to github.com repository:
+```
+$ root@0-0-0-0.ip.linodeusercontent.com: git add .
+$ root@0-0-0-0.ip.linodeusercontent.com: git commit ...
+
+```
+
+or
+
+```
+$ root@0-0-0-0.ip.linodeusercontent.com: git commit -am "[short note on what the update is about]"
+```
