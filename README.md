@@ -37,6 +37,7 @@ $ root@0-0-0-0.ip.linodeusercontent.com: git push
 ```
 $ root@0-0-0-0.ip.linodeusercontent.com: git add .
 $ root@0-0-0-0.ip.linodeusercontent.com: git commit ...
+$ root@0-0-0-0.ip.linodeusercontent.com: git push
 
 ```
 
@@ -44,4 +45,5 @@ or
 
 ```
 $ root@0-0-0-0.ip.linodeusercontent.com: git commit -am "[short note on what the update is about]"
+$ root@0-0-0-0.ip.linodeusercontent.com: git push
 ```
