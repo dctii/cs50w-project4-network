@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Network{% endblock %}</title>
+
+        <!-- Meta Tag(s) -->
+        <meta name="viewport" content="width=device-width, initial-scale=0.75">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Social_Network_Sharing_Icon_Simplified.svg/640px-Social_Network_Sharing_Icon_Simplified.svg.png">
+        
+        <!--Font Awesome v 4.7.0 // https://bit.ly/3v5JQKY FA4 Icon Library-->
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Bootstrap 4.4.1 CSS -->
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="{% static 'network/styles.css' %}">
+
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body class="bg bg-light">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <a class="navbar-brand" href="{% url 'index' %}">Network</a>
+        
+            <div>
+            <ul class="navbar-nav mr-auto">
+                <!-- If the user is logged in, display a username -->
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'edit_user_profile' %}">
+                            <strong><i class="fa fa-user pr-2"></i>{{ user.username }}</strong>
+                        </a>
+                    </li>
+                {% endif %}
+                <!-- Whether logged in or not, display these -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">All Posts</a>
+                </li>
+                <!-- If the user is logged in, display these -->
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" id="followingView" href="#">Following</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="{% url 'logout' %}">Log Out</a>
+                    </li>
+                <!-- If not logged in, display these -->
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" id="login" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                {% endif %}
+            </ul>
+            </div>
+        </nav>
+        <!-- Body Block -->
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

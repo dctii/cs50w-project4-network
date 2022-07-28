@@ -1,0 +1,70 @@
+
+/* When the user hovers over the card header where an author's username is crowned, it will transition into a blue background with white text */
+.profile:hover {
+    cursor: pointer;
+    transition: background-color 0.3s ease-in,
+                color 0.3s ease-in;
+    color:white;
+    background-color: rgb(0, 140, 255);
+}
+
+/* Used to set the text color of the timestamp next to the author's username on the card*/
+.profile-created-date {
+    color:lightgrey;
+}
+
+/* Set so the timestamp changes its text color along with an author's username when the user hovers over the card header */
+.profile-created-date:hover {
+    transition: background-color 0.3s ease-in,
+                color 0.3s ease-in;
+    color:white;
+}
+
+/* https://bit.ly/3RVLgSa 'How TO - Shake an Image' 
+    When the user hovers over the heart icon for using the like-post toggle, the heart will 1-2-3 jump */
+[class^='fa fa-heart']:hover {
+    /* transform: rotate(360deg);
+    transition: transform 0.75s; */
+    
+    animation: jump 1.5s;
+    color:red;
+    cursor: pointer;
+}
+
+/* Sets the movement sequence for the heart to jump up and down and then to a large jump at the end of the animation */
+@keyframes jump {
+    0% { transform: translate(0px, 0px) rotate(0deg); }
+    10% { transform: translate(0px, -5px) rotate(0deg); }
+    20% { transform: translate(0px, -1px) rotate(0deg); }
+    30% { transform: translate(0px, 0px) rotate(0deg); }
+    40% { transform: translate(0px, -5px) rotate(0deg); }
+    50% { transform: translate(0px, -1px) rotate(0deg); }
+    60% { transform: translate(0px, 0px) rotate(0deg); }
+    70% { transform: translate(0px, -5px) rotate(0deg); }
+    80% { transform: translate(0px, 10px) rotate(0deg); }
+    90% { transform: translate(0px, -15px) rotate(0deg); }
+    100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+/* Sets a custom border on thes input types */
+input[type = text], input[type = number], input[type = password], input[type = email]{
+    border-top: 1px solid lightgray;
+    border-bottom: 3px solid lightgray;
+    border-right: none;
+    cursor: text;
+}
+
+/* Sets a custom border on this border type -- specifically for the "Post" button for creating new posts */
+input[type = submit]{
+    border-top: 1px solid darkseagreen;
+    border-bottom: 3px solid darkseagreen;
+    border-right: 1px solid darkseagreen;
+    border-left: 1px solid rgb(159, 177, 159);
+    cursor: pointer;
+}
+
+/* Class that removes rounded corners on the top right and top left of a local background */
+.rounded-top-0 {
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+}

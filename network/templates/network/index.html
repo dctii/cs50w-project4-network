@@ -1,0 +1,74 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div id="postView" class="row justify-content-center pt-5">
+        <!-- New Post Block for All Posts View -->
+        <div class="form-group card col-6 border-top-0 mb-4 mx-0 mx-md-3 p-0 shadow-sm">
+            <div class="card-header bg bg-primary p-2 text-white">
+                <h3 class="pl-2 pt-2">Create a Post</h3>
+            </div>
+            <!-- Card for Creating a New Post -->
+            <div class="card-body">
+                <!-- Create New Post Form-->
+                <form action="{% url 'submit_post' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="input-group justify-content-center">
+                            <!-- Textfield input box for post content -->
+                            <input type="text" name="content" maxlength="280" placeholder="What would you like to say?" autofocus autocomplete="off" class="form-control col-10 rounded-1" style="height: 50px;" required >
+                            <div class="input-group-append">
+                                <!-- Prepended post button to submit form information -->
+                                <input type="submit" value="Post" class="btn btn-success rounded-right">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>  
+    </div>
+
+    <!-- Profile View -->
+    <div id="profileView">
+        <div class="card border-0 py-3 text-center">
+            <div class="card-header bg bg-white border-0">
+                <!-- Display an author's profile photo -->
+                <div id="profilePhoto">
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- Display an author's username -->
+                <h5 id="profileUsername" class="card-title"></h5>
+                <!-- Display an follow button to toggle following and unfollowing -->
+                <a id="followButton" type="button" class="btn btn-sm btn-outline-primary"></a>
+            </div>
+            <div class="card-footer border-bottom border-top-0 text-muted shadow">
+                <!-- Display following and follower count for user -->
+                <span class="card-text pr-1" id="followingSum"></span>
+                •
+                <span class="card-text pr-1" id="followersSum"></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Divider to demarcate the posts section -->
+    <div class="pb-3">
+        <h2 class="py-3 border border-primary border-left-0 border-right-0 rounded-0 shadow" style="text-align: center;">Posts</h2>
+    </div>
+    <!-- Pagination Buttons -->
+    <div id="pages" class="row justify-content-center">
+        <nav aria-label="Page navigation example">
+            <ul id="pagination" class="pagination">
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Lists of posts -->
+    <div id="postsList">
+    </div>
+{% endblock %}
+
+{% block script %}
+    <!-- Main JS -->
+    <script src="{% static 'network/Generator.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <!-- An aesthetic boost to the given registration form -->
+    <div class="d-flex vh-100 flex-column align-content-center justify-content-center">
+        <div class="align-self-center bg-light border p-5 text-center">
+            <h2 class="pb-3">Register</h2>
+
+            {% if message %}
+                <div class="pb-4">
+                    <span class="alert alert-warning">{{ message }}</span>
+                </div>
+            {% endif %}
+
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input class="form-control" autocomplete="off" autofocus type="text" name="username" placeholder="Username" style="border-right: 1px solid lightgrey;" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" autocomplete="off" type="email" name="email" placeholder="Email Address" style="border-right: 1px solid lightgrey;" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" autocomplete="off" type="password" name="password" placeholder="Password" style="border-right: 1px solid lightgrey;" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" autocomplete="off" type="password" name="confirmation" placeholder="Confirm Password" style="border-right: 1px solid lightgrey;" required>
+                </div>
+                <input class="btn btn-block btn-secondary border-0" type="submit" value="Register">
+            </form>
+            <hr class="solid" />
+            Already have an account? <a href="{% url 'login' %}"  style="color:#6699CC;">Log In here.</a>
+        </div>
+    </div>
+
+{% endblock %}
